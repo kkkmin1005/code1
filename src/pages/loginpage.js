@@ -9,7 +9,7 @@ const data ={
   password: 'dddd'
 }
 
-function LoginPage({setLoginState}){
+function LoginPage({setLoginState, setLogurlState}){
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
 
@@ -23,11 +23,36 @@ function LoginPage({setLoginState}){
 
     const handleSubmitChange = (e) => {
       e.preventDefault();
+
+      {/*fetch('https://api.google.com/user', {
+        method: 'post',
+        body: JSON.stringify({
+            email: id,
+            password: password
+        })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+            alert("로그인 성공");
+            localStorage.setItem('cookie', id);
+            localStorage.setItem('url', '/user');
+            setLoginState(id); // 로그인 상태 변경
+            setLogurlState('/user');
+        } else{
+          alert('로그인 실패')
+        }
+      })*/}
+
+
+
       if (id === data.id && password === data.password) {
         alert('로그인 성공');
         // 로그인 성공 시 로컬 스토리지에 로그인 상태를 저장
-        localStorage.setItem('loggedInId', id);
+        localStorage.setItem('cookie', id);
+        localStorage.setItem('url', '/user');
         setLoginState(id); // 로그인 상태 변경
+        setLogurlState('/user');
       } else {
         alert('로그인 실패');
         // 로그인 실패 시에는 setLoginState를 호출하지 않음

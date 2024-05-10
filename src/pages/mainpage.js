@@ -33,6 +33,15 @@ function Mainpage() {
     SetRecommendPosts(data);
   }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨
 
+  let MainNewPosts = [];
+
+  [0, 1, 2, 3].forEach(index => {
+    if (NewPosts[index]) {
+      MainNewPosts.push(NewPosts[index]);
+    }
+  });
+
+
   return (
     <>
       <div className='Posts'>
@@ -40,7 +49,7 @@ function Mainpage() {
       </div>
 
       <div className="box">
-        {NewPosts.map((post, index) => <Posts key={index} post={post} />)}
+        {MainNewPosts.map((post, index) => <Posts key={index} post={post} />)}
       </div>
 
       <div className='Posts'>
