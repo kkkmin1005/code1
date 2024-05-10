@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './fundingpage.css';
-import data from './data.js'
 import {Route, Routes, Link} from 'react-router-dom';
 
 function FundingPage() {
   // 상태를 사용하여 데이터를 관리
-  const [fundingData, setFundingData] = useState(data);
+  const [fundingData, setFundingData] = useState([]);
+
+  useEffect(() => {
+    // data.js에서 데이터 가져와서 상태 업데이트
+    fetch('url')
+      .then(res => res.json()) // .json() 메서드 호출
+      .then(data => {
+        setFundingData(data); // 첫 번째 then 메서드에서 처리
+      });
+  }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨
 
   return (
     <>
@@ -18,16 +26,16 @@ function FundingPage() {
   );
 }
 
-function FundingPosts({ post }) {
+function FundingPosts({ post, index }) {
   return (
     <Card style={{ width: '18rem' }} id='Fundingcard'>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
-        <Card.Title>{post.title}</Card.Title>
+        <Card.Title>{post.name}</Card.Title>
         <Card.Text>
-          {post.shortExplain}
+          {post.data}
         </Card.Text>
-        <Link to={`/detail/${post.id}`}>
+        <Link to={`/detail/${index}`}>
           <Button variant="primary">자세히 보기</Button>
         </Link>
       </Card.Body>

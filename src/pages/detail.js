@@ -62,18 +62,22 @@ function Fund(props) {
 function Detail() {
 
   const {id}= useParams();
-  const [NewPosts, SetNewPosts] = useState(data);
+  const [Posts, SetPosts] = useState([]);
 
   useEffect(() => {
     // data.js에서 데이터 가져와서 상태 업데이트
-    SetNewPosts(data);
+    fetch('url')
+      .then(res => res.json()) // .json() 메서드 호출
+      .then(data => {
+        SetPosts(data); // 첫 번째 then 메서드에서 처리 // 첫 번째 then 메서드에서 처리
+      });
   }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨
 
   return(
     <div className= 'Detail'>
 
       <div className='detail_title'>
-        <Header title= {NewPosts[id].title} />
+        <Header title= {Posts[id].name} />
       </div>
 
       <div className='detail_main'>
@@ -92,7 +96,7 @@ function Detail() {
         </div>
 
 
-        <div>{NewPosts[id].shortExplain}</div>
+        <div>{Posts[id].data}</div>
       </div>
 
     </div>
