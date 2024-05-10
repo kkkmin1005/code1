@@ -10,9 +10,9 @@ function Posts({ post }) {
     <Card style={{ width: '18rem' }} className='Card'>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
-        <Card.Title>{post.title}</Card.Title>
+        <Card.Title>{post.name}</Card.Title>
         <Card.Text>
-          {post.shortExplain}
+          {post.data}
         </Card.Text>
         <Link to={`/detail/${post.id}`}>
           <Button variant="primary">자세히 보기</Button>
