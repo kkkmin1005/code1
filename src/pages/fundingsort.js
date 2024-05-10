@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import './fundingpage.css';
 import {Route, Routes, Link} from 'react-router-dom';
 
-function FundingPage() {
+function Fundingsort() {
   // 상태를 사용하여 데이터를 관리
   const [fundingData, setFundingData] = useState([]);
 
@@ -44,4 +44,4 @@ function FundingPosts({ post, index }) {
   );
 }
 
-export default FundingPage;
+export default Fundingsort;
