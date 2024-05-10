@@ -29,19 +29,13 @@ function Mainpage() {
 
   useEffect(() => {
     // data.js에서 데이터 가져와서 상태 업데이트
-    SetNewPosts(data);
-    SetRecommendPosts(data);
-  }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨
-
-  {/*useEffect(() => {
-    // data.js에서 데이터 가져와서 상태 업데이트
     fetch('url')
       .then(res => res.json()) // .json() 메서드 호출
       .then(data => {
         SetNewPosts(data); // 첫 번째 then 메서드에서 처리
         SetRecommendPosts(data); // 첫 번째 then 메서드에서 처리
       });
-  }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨*/}
+  }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨
   
 
 
