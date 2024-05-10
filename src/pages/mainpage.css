@@ -1,0 +1,26 @@
+.Posts{
+    margin-top: 60px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 200px;
+    font-size: 20px;
+}
+
+.box {
+    margin-top: 30px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    border: 2px solid #ccc; /* 테두리 스타일 설정 */
+    border-radius: 10px; /* 박스의 테두리를 둥글게 만듭니다. */
+    margin-bottom: 100px;
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card{
+    float: left;
+    margin: 0 10px;
+}

@@ -1,0 +1,16 @@
+.Fundingbox{
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-bottom: 100px;
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+#Fundingcard{
+    float: left;
+    margin: 60px 10px;
+}
