@@ -17,6 +17,7 @@ function Header({title}) {
 function Image() {
   return(
     <>
+    
       <div className='detail_imagebox'>
         <img
           src= "../image/img1.jpg"
@@ -24,6 +25,7 @@ function Image() {
           className='main-image'
         />
       </div>
+
     </>
   )
 }

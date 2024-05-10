@@ -12,11 +12,30 @@ import { SuccessPage } from './pages/success';
 import { FailPage } from './pages/fail';
 import React, { useEffect, useState } from 'react';
 import UserPage from './pages/user.js'
-
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [loginState, setLoginState] = useState('Login'); 
   const [logurlState, setLogurlState]= useState('/login');
+  const [search, setSearch] = useState('');
+  const [fd, setfd] = useState('')
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  }
+
+  const handleSubmitChange = (e) => {
+    e.preventDefault();
+
+    fetch('https://api.google.com/user', {
+      method: 'post',
+      body: JSON.stringify(search)
+      .then(res => res.json)
+      .then(res => {setfd(res)})
+    })
+  }
+
 
   useEffect(()=> {
     const storedLoginState = localStorage.getItem('cookie');
@@ -30,7 +49,7 @@ function App() {
   return (
     <div className="App">
   
-      <Navbar bg="light" data-bs-theme="light">
+      {/*<Navbar bg="light" data-bs-theme="light">
         <Container>
           <Navbar.Brand href="/home">SAMSAMOO</Navbar.Brand>
           <Nav className="me-auto">
@@ -42,11 +61,42 @@ function App() {
             <Nav.Link href={logurlState}>{loginState}</Nav.Link>
           </Nav>
         </Container>
+  </Navbar>*/}
+
+
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container fluid>
+          <Navbar.Brand href="/home">SAMSAMOO</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            >
+              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/funding">Funding</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href={logurlState}>{loginState}</Nav.Link>
+
+            </Nav>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                onChange={handleSearchChange}
+              />
+              <Button variant="outline-success" onClick={handleSubmitChange}>Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
 
       <Routes>
         <Route path='/home' element={<Mainpage/>} />
-        <Route path='/funding' element={<FundingPage/>} />
+        <Route path='/funding' element={<FundingPage fd={fd}/>} />
         <Route path='/about' element={<div>우리 사이트에 관하여...</div>} />
         <Route path='/login' element={<LoginPage setLoginState={setLoginState} setLogurlState={setLogurlState}/>} />
         <Route path='/detail/:id' element={<Detail />} />

@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import './fundingpage.css';
 import {Route, Routes, Link} from 'react-router-dom';
 
-function FundingPage() {
+function FundingPage({fd}) {
   // 상태를 사용하여 데이터를 관리
   const [fundingData, setFundingData] = useState([]);
 
@@ -16,6 +16,8 @@ function FundingPage() {
         setFundingData(data); // 첫 번째 then 메서드에서 처리
       });
   }, []); // 컴포넌트가 처음 렌더링될 때 한 번만 실행됨
+
+  {setFundingData(fd)}
 
   return (
     <>

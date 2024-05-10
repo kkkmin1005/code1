@@ -5,7 +5,7 @@ import './mainpage.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function Posts({ post }) {
+function Posts({ post, index}) {
   return (
     <Card style={{ width: '18rem' }} className='Card'>
       <Card.Img variant="top" src="holder.js/100px180" />
@@ -14,7 +14,7 @@ function Posts({ post }) {
         <Card.Text>
           {post.data}
         </Card.Text>
-        <Link to={`/detail/${post.id}`}>
+        <Link to={`/detail/${index}`}>
           <Button variant="primary">자세히 보기</Button>
         </Link>
       </Card.Body>
