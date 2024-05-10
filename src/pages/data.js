@@ -25,6 +25,34 @@ let data = [{
         shortExplain:'물 관리 회사',
         companyUrl:'/dcompany',
         img :'/logo.png'
+    },
+    {
+        id : '4',
+        title:'D기업',
+        shortExplain:'물 관리 회사',
+        companyUrl:'/dcompany',
+        img :'/logo.png'
+    },
+    {
+        id : '5',
+        title:'D기업',
+        shortExplain:'물 관리 회사',
+        companyUrl:'/dcompany',
+        img :'/logo.png'
+    },
+    {
+        id : '6',
+        title:'D기업',
+        shortExplain:'물 관리 회사',
+        companyUrl:'/dcompany',
+        img :'/logo.png'
+    },
+    {
+        id : '7',
+        title:'D기업',
+        shortExplain:'물 관리 회사',
+        companyUrl:'/dcompany',
+        img :'/logo.png'
     }
 ]
 
